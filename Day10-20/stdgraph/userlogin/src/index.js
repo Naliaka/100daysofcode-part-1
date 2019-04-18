@@ -1,23 +1,53 @@
-import React from "react";
-import ReactDOM from "react-dom";
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
 
-import { HashRouter, Route, Switch } from "react-router-dom";
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
-import indexRoutes from "routes/index.jsx";
+export default class crm extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.android.js
+        </Text>
+        <Text style={styles.instructions}>
+          Double tap R on your keyboard to reload,{'\n'}
+          Shake or press menu button for dev menu
+        </Text>
+      </View>
+    );
+  }
+}
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/css/animate.min.css";
-import "./assets/sass/light-bootstrap-dashboard.css?v=1.2.0";
-import "./assets/css/demo.css";
-import "./assets/css/pe-icon-7-stroke.css";
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
 
-ReactDOM.render(
-  <HashRouter>
-    <Switch>
-      {indexRoutes.map((prop, key) => {
-        return <Route to={prop.path} component={prop.component} key={key} />;
-      })}
-    </Switch>
-  </HashRouter>,
-  document.getElementById("root")
-);
+AppRegistry.registerComponent('crm', () => crm);
